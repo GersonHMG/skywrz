@@ -2,7 +2,7 @@
 
 Prototipo de videojuego multijugador, basado en minecraft skywars.
 
-![Alt text](images\portrait.png)
+![Alt text](https://github.com/GersonHMG/skywrz/blob/master/images/portrait.png)
 
 # Requirements
 
