@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art_resources/Items/pickaxe.png" type="Texture" id=1]
+[ext_resource path="res://Game_scenes/Character/weapons and tools/pickaxe.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hit"
+length = 0.2
+
+[sub_resource type="Animation" id=2]
+resource_name = "pickaxe_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("hand:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 0.060371, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -66.0, 22.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 0.0126914, 0.0228763 ),
+"update": 0,
+"values": [ Vector2( 0.08, 0.08 ), Vector2( 0.1, 0.1 ), Vector2( 0.08, 0.08 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hand:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="pickaxe" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="raycast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 50, 0 )
+collide_with_areas = true
+
+[node name="hit" type="AnimationPlayer" parent="."]
+anims/hit = SubResource( 1 )
+anims/pickaxe_attack = SubResource( 2 )
+
+[node name="Punch_delay" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="hand" type="Sprite" parent="."]
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 1 )
+[connection signal="animation_finished" from="hit" to="raycast" method="_on_hit_animation_finished"]
+[connection signal="animation_finished" from="hit" to="." method="_on_hit_animation_finished"]
+[connection signal="timeout" from="Punch_delay" to="raycast" method="_on_Punch_delay_timeout"]
+[connection signal="timeout" from="Punch_delay" to="." method="_on_Punch_delay_timeout"]

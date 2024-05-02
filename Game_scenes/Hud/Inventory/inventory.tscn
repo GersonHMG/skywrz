@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Game_scenes/Hud/Inventory/slot_box2.gd" type="Script" id=1]
+[ext_resource path="res://Game_scenes/Hud/Inventory/inventory.gd" type="Script" id=2]
+[ext_resource path="res://Game_scenes/Hud/Inventory/slot_box.gd" type="Script" id=3]
+[ext_resource path="res://Art_resources/Menu/marco.png" type="Texture" id=4]
+[ext_resource path="res://Game_scenes/Hud/Inventory/crafting_table.gd" type="Script" id=5]
+[ext_resource path="res://Art_resources/Inventory_box.png" type="Texture" id=6]
+
+[node name="inventory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.41171
+margin_bottom = -4.41174
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="developer_tool" type="Panel" parent="."]
+margin_left = 747.0
+margin_top = 27.0
+margin_right = 998.0
+margin_bottom = 186.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="check_items" type="Button" parent="developer_tool"]
+margin_left = 19.0
+margin_top = 36.0
+margin_right = 235.0
+margin_bottom = 82.0
+shortcut_in_tooltip = false
+text = "Check Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add_item" type="Button" parent="developer_tool"]
+margin_left = 17.0
+margin_top = 90.0
+margin_right = 235.0
+margin_bottom = 137.0
+shortcut_in_tooltip = false
+text = "Add Item"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="developer_tool"]
+margin_left = 50.1686
+margin_top = 5.70149
+margin_right = 220.169
+margin_bottom = 35.7015
+text = "Developer Tool (Inventory)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot_box" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 376.0
+margin_top = 124.412
+margin_right = -250.0
+margin_bottom = -267.588
+texture = ExtResource( 6 )
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="slot_box"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -12.0
+margin_bottom = -8.00002
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot_box_primary" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 384.0
+margin_top = 516.412
+margin_right = -268.0
+margin_bottom = -19.5882
+color = Color( 0.415686, 0.415686, 0.415686, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="slot_box_primary"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crafting_table" type="ColorRect" parent="."]
+visible = false
+margin_left = 64.0
+margin_top = 132.0
+margin_right = 320.0
+margin_bottom = 388.0
+color = Color( 0.415686, 0.415686, 0.415686, 1 )
+script = ExtResource( 5 )
+
+[node name="frame" type="TextureRect" parent="crafting_table"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 24.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="crafting_table"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="crafting_table/ScrollContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="developer_tool/check_items" to="." method="_on_check_items_pressed"]
+[connection signal="pressed" from="developer_tool/add_item" to="." method="_on_add_item_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game_scenes/Hud/Inventory/slot_craft.gd" type="Script" id=1]
+
+[node name="slot_craft" type="Panel"]
+margin_right = 240.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 240, 56 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="craft_button" type="Button" parent="."]
+margin_left = 160.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 32.0
+text = "Craft"
+
+[node name="item_name" type="Label" parent="."]
+margin_right = 128.0
+margin_bottom = 16.0
+text = "Item name:"
+
+[node name="materials" type="Label" parent="."]
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 38.0
+text = "Materials:"
+[connection signal="pressed" from="craft_button" to="." method="_on_craft_button_pressed"]

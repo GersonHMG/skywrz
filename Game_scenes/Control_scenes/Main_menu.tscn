@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game_scenes/Control_scenes/Network.gd" type="Script" id=1]
+
+[node name="Main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Network_interface" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="Network_interface"]
+margin_left = 270.0
+margin_top = 472.0
+margin_right = 495.0
+margin_bottom = 510.0
+text = "Conectarse"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host" type="Button" parent="Network_interface"]
+margin_left = 496.0
+margin_top = 472.0
+margin_right = 731.0
+margin_bottom = 510.0
+text = "Hostear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ip_label" type="Label" parent="Network_interface"]
+margin_left = 355.288
+margin_top = 436.612
+margin_right = 410.288
+margin_bottom = 463.612
+text = "IP"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Ip_edit" type="TextEdit" parent="Network_interface/Ip_label"]
+margin_left = 23.5999
+margin_top = -8.0
+margin_right = 270.6
+margin_bottom = 21.0
+text = "localhost"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Network_interface"]
+margin_left = 337.3
+margin_top = 26.25
+margin_right = 648.3
+margin_bottom = 407.25
+color = Color( 0, 0.0196078, 0.541176, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Players_list" type="ItemList" parent="Network_interface/Panel"]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 305.0
+margin_bottom = 376.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="Network_interface"]
+margin_left = 345.0
+margin_top = 361.0
+margin_right = 639.0
+margin_bottom = 400.0
+text = "Comenzar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Network_interface/Join" to="Network_interface" method="_on_Join_pressed"]
+[connection signal="pressed" from="Network_interface/Host" to="Network_interface" method="_on_Host_pressed"]
+[connection signal="pressed" from="Network_interface/Start" to="Network_interface" method="_on_Start_pressed"]

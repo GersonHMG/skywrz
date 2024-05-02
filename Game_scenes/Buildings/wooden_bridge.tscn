@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art_resources/Buildings/wooden_bridge.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.3383, 14.729 )
+
+[node name="wooden_bridge" type="StaticBody2D"]
+position = Vector2( 13.1815, 15.017 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -16.2635, -15.3796 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0226974, 0.04673 )
+shape = SubResource( 1 )

@@ -1,0 +1,44 @@
+{
+  "wood": {
+    "item_attack": 0,
+    "item_stack": 24,
+    "item_type": "craft",
+    "recipe": null
+  },
+  "stone": {
+    "item_attack": 0,
+    "item_stack": 24,
+    "item_type": "craft",
+    "recipe": null
+  },
+  "ak47": {
+    "item_attack": 20,
+    "item_stack": 1,
+    "item_type": "weapon",
+    "recipe": null
+  },
+  "pickaxe": {
+    "item_attack": 5,
+    "item_stack": 1,
+    "item_type": "tool",
+    "recipe": {"wood":3,"stone":5}
+  },
+  "sword": {
+    "item_attack": 10,
+    "item_stack": 1,
+    "item_type": "weapon",
+    "recipe": null
+  },
+  "box": {
+    "item_attack": 0,
+    "item_stack": 6,
+    "item_type": "building",
+    "recipe": {"wood":5}
+  },
+  "wooden_bridge": {
+    "item_attack": 0,
+    "item_stack": 10,
+    "item_type": "building",
+    "recipe": {"wood":5}
+  }
+}
